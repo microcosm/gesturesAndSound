@@ -55,6 +55,7 @@
 		8466B3911B2B7D9A0010C546 /* PresetsHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8466B3801B2B7D9A0010C546 /* PresetsHandler.cpp */; };
 		8466B3921B2B7D9A0010C546 /* UIHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8466B3821B2B7D9A0010C546 /* UIHandler.cpp */; };
 		8466B3931B2B7D9A0010C546 /* ofxAudioUnitManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8466B3841B2B7D9A0010C546 /* ofxAudioUnitManager.cpp */; };
+		8466B7861B2B81250010C546 /* ofxLearn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8466B3961B2B81230010C546 /* ofxLearn.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -205,6 +206,8 @@
 		8466B3831B2B7D9A0010C546 /* UIHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIHandler.h; sourceTree = "<group>"; };
 		8466B3841B2B7D9A0010C546 /* ofxAudioUnitManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAudioUnitManager.cpp; sourceTree = "<group>"; };
 		8466B3851B2B7D9A0010C546 /* ofxAudioUnitManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxAudioUnitManager.h; sourceTree = "<group>"; };
+		8466B3961B2B81230010C546 /* ofxLearn.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxLearn.cpp; sourceTree = "<group>"; };
+		8466B3971B2B81230010C546 /* ofxLearn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxLearn.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -496,9 +499,28 @@
 			path = Handlers;
 			sourceTree = "<group>";
 		};
+		8466B3941B2B81230010C546 /* ofxLearn */ = {
+			isa = PBXGroup;
+			children = (
+				8466B3951B2B81230010C546 /* src */,
+			);
+			name = ofxLearn;
+			sourceTree = "<group>";
+		};
+		8466B3951B2B81230010C546 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				8466B3961B2B81230010C546 /* ofxLearn.cpp */,
+				8466B3971B2B81230010C546 /* ofxLearn.h */,
+			);
+			name = src;
+			path = ../../../addons/ofxLearn/src;
+			sourceTree = "<group>";
+		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				8466B3941B2B81230010C546 /* ofxLearn */,
 				8466B3641B2B7D9A0010C546 /* ofxAudioUnitManager */,
 				8466B35F1B2B7D900010C546 /* ofxBpm */,
 				8466B3271B2B7D8A0010C546 /* ofxMidi */,
@@ -676,6 +698,7 @@
 				8466B3231B2B7D860010C546 /* TPCircularBuffer.c in Sources */,
 				8466B3121B2B7D860010C546 /* ofxAudioUnit.cpp in Sources */,
 				8466B3221B2B7D860010C546 /* ofxAudioUnitTap.cpp in Sources */,
+				8466B7861B2B81250010C546 /* ofxLearn.cpp in Sources */,
 				8466B3191B2B7D860010C546 /* ofxAudioUnitMatrixMixer.cpp in Sources */,
 				8466B3581B2B7D8A0010C546 /* ofxBaseMidi.cpp in Sources */,
 				8466B3561B2B7D8A0010C546 /* ofxRtMidiIn.cpp in Sources */,
@@ -806,6 +829,10 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(OF_CORE_HEADERS)",
+					../../../addons/ofxLearn/libs/,
+				);
 				ICON = "$(ICON_NAME_DEBUG)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
@@ -892,6 +919,10 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(OF_CORE_HEADERS)",
+					../../../addons/ofxLearn/libs/,
+				);
 				ICON = "$(ICON_NAME_RELEASE)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
