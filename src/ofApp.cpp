@@ -7,7 +7,6 @@ void ofApp::setup(){
     note = 60;
 
     manager.setup();
-    manager.toggleDebugUI();
 
     //Chain 1
     manager.add(&chain1, "tal-one", ofColor::blue);
@@ -32,10 +31,8 @@ void ofApp::setup(){
     //ofxBpm
     ofAddListener(bpm.beatEvent, this, &ofApp::play);
     bpm.start();
-
-    //Machine Learning stuff
-    //======================
     
+    showMachineLearningUI = false;
 }
 
 void ofApp::play(void){
@@ -60,6 +57,9 @@ void ofApp::update(){
 
 void ofApp::draw(){
     manager.draw();
+    if(showMachineLearningUI){
+        drawMachineLearningUI();
+    }
 }
 
 void ofApp::exit() {
@@ -69,6 +69,8 @@ void ofApp::exit() {
 void ofApp::keyPressed(int key){
     if(key == ' ') {
         togglePlaying();
+    } else if(key == 'l') {
+        showMachineLearningUI = !showMachineLearningUI;
     } else if(key == '[') {
         togglePlaying();
         note--;

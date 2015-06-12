@@ -54,6 +54,7 @@ public:
     bool playing;
     int note;
     
+    bool showMachineLearningUI;
     ofxLearn classifier;
     ofxGraphicsFeatureMaker maker;
     vector<double> instance;
