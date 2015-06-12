@@ -5,34 +5,36 @@ void ofApp::setup(){
     //========================
     playing = false;
     note = 60;
-
-    manager.setup();
-
-    //Chain 1
-    manager.add(&chain1, "tal-one", ofColor::blue);
-
-    chain1.link(&noiseMaker1)
-          .to(&filter1)
-          .to(&reverb1)
-          .toMixer();
-
-    manager.loadPresets(&chain1);
-    
-    //Chain 2
-    manager.add(&chain2, "tal-two", ofColor::red);
-
-    chain2.link(&noiseMaker2)
-          .to(&filter2)
-          .to(&reverb2)
-          .toMixer();
-
-    manager.loadPresets(&chain2);
+    audioUnitManager.setup();
+    setupAudioUnitChains();
 
     //ofxBpm
     ofAddListener(bpm.beatEvent, this, &ofApp::play);
     bpm.start();
     
     showMachineLearningUI = false;
+}
+
+void ofApp::setupAudioUnitChains(){
+    //Chain 1
+    audioUnitManager.add(&chain1, "tal-one", ofColor::blue);
+    
+    chain1.link(&noiseMaker1)
+    .to(&filter1)
+    .to(&reverb1)
+    .toMixer();
+    
+    audioUnitManager.loadPresets(&chain1);
+    
+    //Chain 2
+    audioUnitManager.add(&chain2, "tal-two", ofColor::red);
+    
+    chain2.link(&noiseMaker2)
+    .to(&filter2)
+    .to(&reverb2)
+    .toMixer();
+    
+    audioUnitManager.loadPresets(&chain2);
 }
 
 void ofApp::play(void){
@@ -56,14 +58,14 @@ void ofApp::update(){
 }
 
 void ofApp::draw(){
-    manager.draw();
+    audioUnitManager.draw();
     if(showMachineLearningUI){
         drawMachineLearningUI();
     }
 }
 
 void ofApp::exit() {
-    manager.exit();
+    audioUnitManager.exit();
 }
 
 void ofApp::keyPressed(int key){
@@ -80,7 +82,7 @@ void ofApp::keyPressed(int key){
         note++;
         togglePlaying();
     } else {
-        manager.keyPressed(key);
+        audioUnitManager.keyPressed(key);
     }
 }
 

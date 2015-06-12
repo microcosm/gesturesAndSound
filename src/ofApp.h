@@ -27,6 +27,7 @@ class ofApp : public ofBaseApp{
     
 public:
     void setup();
+    void setupAudioUnitChains();
     void update();
     void draw();
     void drawMachineLearningUI();
@@ -44,7 +45,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 
-    ofxAudioUnitManager manager;
+    ofxAudioUnitManager audioUnitManager;
     AudioUnitChain chain1, chain2;
     TALNoiseMaker noiseMaker1, noiseMaker2;
     LowPassFilter filter1, filter2;
