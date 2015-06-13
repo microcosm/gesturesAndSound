@@ -58,6 +58,7 @@
 		8466B7861B2B81250010C546 /* ofxLearn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8466B3961B2B81230010C546 /* ofxLearn.cpp */; };
 		84E9651A1B2BB2E3009CD968 /* ofxGraphicsFeatureMaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84E965181B2BB2E3009CD968 /* ofxGraphicsFeatureMaker.cpp */; };
 		84E9651D1B2BB4DA009CD968 /* AudioUnitHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84E9651B1B2BB4DA009CD968 /* AudioUnitHandler.cpp */; };
+		84E965201B2BB7C5009CD968 /* MachineLearningHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84E9651E1B2BB7C5009CD968 /* MachineLearningHandler.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -214,6 +215,8 @@
 		84E965191B2BB2E3009CD968 /* ofxGraphicsFeatureMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGraphicsFeatureMaker.h; sourceTree = "<group>"; };
 		84E9651B1B2BB4DA009CD968 /* AudioUnitHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioUnitHandler.cpp; sourceTree = "<group>"; };
 		84E9651C1B2BB4DA009CD968 /* AudioUnitHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioUnitHandler.h; sourceTree = "<group>"; };
+		84E9651E1B2BB7C5009CD968 /* MachineLearningHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MachineLearningHandler.cpp; sourceTree = "<group>"; };
+		84E9651F1B2BB7C5009CD968 /* MachineLearningHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MachineLearningHandler.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -528,6 +531,8 @@
 			children = (
 				84E9651B1B2BB4DA009CD968 /* AudioUnitHandler.cpp */,
 				84E9651C1B2BB4DA009CD968 /* AudioUnitHandler.h */,
+				84E9651E1B2BB7C5009CD968 /* MachineLearningHandler.cpp */,
+				84E9651F1B2BB7C5009CD968 /* MachineLearningHandler.h */,
 				84E965181B2BB2E3009CD968 /* ofxGraphicsFeatureMaker.cpp */,
 				84E965191B2BB2E3009CD968 /* ofxGraphicsFeatureMaker.h */,
 			);
@@ -742,6 +747,7 @@
 				8466B3161B2B7D860010C546 /* ofxAudioUnitFilePlayer.cpp in Sources */,
 				8466B3861B2B7D9A0010C546 /* AudioUnitBase.cpp in Sources */,
 				8466B3141B2B7D860010C546 /* ofxAudioUnitDSPNode.cpp in Sources */,
+				84E965201B2BB7C5009CD968 /* MachineLearningHandler.cpp in Sources */,
 				8466B3871B2B7D9A0010C546 /* AudioUnitChain.cpp in Sources */,
 				8466B3911B2B7D9A0010C546 /* PresetsHandler.cpp in Sources */,
 				8466B3571B2B7D8A0010C546 /* ofxRtMidiOut.cpp in Sources */,
