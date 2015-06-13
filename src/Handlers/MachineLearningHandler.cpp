@@ -61,37 +61,37 @@ void MachineLearningHandler::mouseMoved(int x, int y){
 }
 
 void MachineLearningHandler::drawMachineLearningUI(){
+    ofFill();
     ofSetColor(0);
-    
-    ofDrawBitmapString("Training set currently contains " + ofToString(classifier.getNumberTrainingInstances()) + " examples", 55, 30);
+    ofDrawBitmapString("Training set currently contains " + ofToString(classifier.getNumberTrainingInstances()) + " examples", 330, 470);
     
     if (isTrained)
-        ofDrawBitmapString("Model trained and ready to use", 55, 55);
+        ofDrawBitmapString("Model trained and ready to use", 330, 490);
     else
-        ofDrawBitmapString("No model trained yet", 55, 55);
+        ofDrawBitmapString("No model trained yet", 330, 490);
     
     if (isCreatingInstance) {
         ofPushStyle();
         ofSetColor(255, 0, 0);
-        ofCircle(60, 75, 5);
+        ofCircle(340, 505, 5);
         ofPopStyle();
-        ofDrawBitmapString("Recording new instance...", 70, 80);
+        ofDrawBitmapString("Recording new instance...", 360, 510);
     }
     
     if (instance.size() > 0) {
         if (lastInstanceIsTraining)
-            ofDrawBitmapString("Last instance added to training set, class " + ofToString(lastLabel), 555, 30);
+            ofDrawBitmapString("Last instance added to training set, class " + ofToString(lastLabel), 330, 530);
         else
-            ofDrawBitmapString("Prediction for this instance: class " + ofToString(lastLabel), 555, 30);
-        maker.drawInstanceFromPointArray(instance, 550, 50, 300, 300);
+            ofDrawBitmapString("Prediction for this instance: class " + ofToString(lastLabel), 330, 530);
+        maker.drawInstanceFromPointArray(instance, 330, 550, 200, 200);
     }
     
     // Instructions
-    ofDrawBitmapString("INSTRUCTIONS:", 55, 400);
-    ofDrawBitmapString("1) Click 'i' to begin recording your mouse motion.", 55, 420);
-    ofDrawBitmapString("2) While recording, click any number key to assign that gesture to that class:", 55, 440);
-    ofDrawBitmapString("3) Try to record at least 10 examples for each class", 55, 460);
-    ofDrawBitmapString("4) Click 't' to train model (may take a minute)", 55, 480);
-    ofDrawBitmapString("5) When model is trained, try applying model to new example by", 55, 500);
-    ofDrawBitmapString("   by recording a new example and clicking 'c'", 55, 520);
+    ofDrawBitmapString("ofxLearn:", 20, 470);
+    ofDrawBitmapString("1) i = record gesture", 20, 490);
+    ofDrawBitmapString("2) 1-9 = assign gesture to class", 20, 510);
+    ofDrawBitmapString("3) record 10 x gestures per class", 20, 530);
+    ofDrawBitmapString("4) t = train model (wait)", 20, 550);
+    ofDrawBitmapString("5) record new gesture, then", 20, 570);
+    ofDrawBitmapString("6) c = interpret recorded gesture", 20, 590);
 }
