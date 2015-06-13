@@ -61,4 +61,5 @@ public:
     vector<double> instance;
     bool isCreatingInstance, lastInstanceIsTraining, isTrained;
     int lastLabel;
+    vector<ofVec2f> points;
 };

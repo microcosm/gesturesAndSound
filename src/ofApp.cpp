@@ -12,7 +12,11 @@ void ofApp::setup(){
     ofAddListener(bpm.beatEvent, this, &ofApp::play);
     bpm.start();
     
+    //Machine Learning
     showMachineLearningUI = false;
+    
+    isCreatingInstance = false;
+    lastInstanceIsTraining = true;
 }
 
 void ofApp::setupAudioUnitChains(){
@@ -84,6 +88,55 @@ void ofApp::keyPressed(int key){
     } else {
         audioUnitManager.keyPressed(key);
     }
+    
+    //Machine Learning stuff
+    //========================
+    
+    // add an instance to training set
+    if (key > 48 && key < 58) {
+        if (isCreatingInstance) {
+            lastLabel = key - 48;        // training label is between 1 and 9
+            instance = maker.createInstanceFromPointArray(points);
+            classifier.addTrainingInstance(instance, lastLabel);
+            points.clear();
+            isCreatingInstance = false;
+            lastInstanceIsTraining = true;
+        }
+    }
+    // classify new instance
+    else if (key=='c') {
+        if (isCreatingInstance) {
+            instance = maker.createInstanceFromPointArray(points);
+            lastLabel = classifier.predict(instance);
+            
+            
+            //lastLabel is the class of the classified gesture
+            cout << lastLabel << endl;
+            
+            if(lastLabel == 1) {
+                chain1.presets()->increment();
+            }
+            if(lastLabel == 2) {
+                chain2.presets()->increment();
+            }
+            if(lastLabel == 3) {
+                
+            }
+            
+            
+            points.clear();
+            isCreatingInstance = false;
+            lastInstanceIsTraining = false;
+        }
+    }
+    // begin recording new instance
+    else if (key=='i')
+        isCreatingInstance = true;
+    // train model
+    else if (key=='t') {
+        classifier.trainClassifier();
+        isTrained = true;
+    }
 }
 
 void ofApp::drawMachineLearningUI(){
@@ -121,6 +174,11 @@ void ofApp::drawMachineLearningUI(){
     ofDrawBitmapString("5) When model is trained, try applying model to new example by", 55, 500);
     ofDrawBitmapString("   by recording a new example and clicking 'c'", 55, 520);
 }
+
+void ofApp::mouseMoved(int x, int y ){
+    if (isCreatingInstance) points.push_back(ofVec2f(mouseX,mouseY));
+}
+
 
 //This we will have to change!
 ofxGraphicsFeatureMaker::ofxGraphicsFeatureMaker() {
@@ -248,10 +306,6 @@ void ofxGraphicsFeatureMaker::drawInstanceFromPointArray(vector<double> &instanc
 
 
 void ofApp::keyReleased(int key){
-
-}
-
-void ofApp::mouseMoved(int x, int y ){
 
 }
 
