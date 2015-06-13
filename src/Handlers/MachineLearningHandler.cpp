@@ -1,7 +1,7 @@
 #include "MachineLearningHandler.h"
 
 void MachineLearningHandler::setup() {
-    showMachineLearningUI = false;
+    showUI = true;
     isCreatingInstance = false;
     lastInstanceIsTraining = true;
 }
@@ -11,14 +11,14 @@ void MachineLearningHandler::sendClassificationsTo(AudioUnitHandler* _classifica
 }
 
 void MachineLearningHandler::draw(){
-    if(showMachineLearningUI){
-        drawMachineLearningUI();
+    if(showUI){
+        drawUI();
     }
 }
 
 void MachineLearningHandler::keyPressed(int key){
     if(key == 'v') {
-        showMachineLearningUI = !showMachineLearningUI;
+        toggleUI();
     }
     // add an instance to training set
     else if (key > 48 && key < 58) {
@@ -60,7 +60,7 @@ void MachineLearningHandler::mouseMoved(int x, int y){
     }
 }
 
-void MachineLearningHandler::drawMachineLearningUI(){
+void MachineLearningHandler::drawUI(){
     
     drawDebugBox(10, 445, 696, 314);
     ofFill();
@@ -112,4 +112,8 @@ void MachineLearningHandler::drawDebugBox(int x, int y, int width, int height, o
     ofNoFill();
     ofRect(x, y, width, height);
     ofFill();
+}
+
+void MachineLearningHandler::toggleUI() {
+    showUI = !showUI;
 }

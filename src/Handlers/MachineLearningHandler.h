@@ -12,9 +12,10 @@ public:
     void draw();
     void keyPressed(int key);
     void mouseMoved(int x, int y);
-    void drawMachineLearningUI();
+    void drawUI();
 protected:
     void drawDebugBox(int x, int y, int width, int height, ofColor color=ofColor(255, 255, 255, 32));
+    void toggleUI();
 
     ofxLearn classifier;
     ofxGraphicsFeatureMaker maker;
@@ -22,7 +23,7 @@ protected:
 
     vector<double> instance;
 
-    bool isCreatingInstance, lastInstanceIsTraining, isTrained, showMachineLearningUI;
+    bool isCreatingInstance, lastInstanceIsTraining, isTrained, showUI;
     int lastLabel;
     vector<ofVec2f> points;
 };

@@ -4,6 +4,7 @@ void AudioUnitHandler::setup() {
     playing = false;
     note = 60;
     audioUnitManager.setup();
+    audioUnitManager.toggleDebugUI();
     setupAudioUnitChains();
     
     ofAddListener(bpm.beatEvent, this, &AudioUnitHandler::play);
