@@ -17,7 +17,7 @@ void MachineLearningHandler::draw(){
 }
 
 void MachineLearningHandler::keyPressed(int key){
-    if(key == 'l') {
+    if(key == 'v') {
         showMachineLearningUI = !showMachineLearningUI;
     }
     // add an instance to training set
