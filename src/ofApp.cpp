@@ -1,91 +1,33 @@
 #include "ofApp.h"
 
 void ofApp::setup(){
-    //Audio Unit Manager stuff
-    //========================
-    playing = false;
-    note = 60;
-    audioUnitManager.setup();
-    setupAudioUnitChains();
-
-    //ofxBpm
-    ofAddListener(bpm.beatEvent, this, &ofApp::play);
-    bpm.start();
+    audioUnitHandler.setup();
     
-    //Machine Learning
     showMachineLearningUI = false;
     isCreatingInstance = false;
     lastInstanceIsTraining = true;
 }
 
-void ofApp::setupAudioUnitChains(){
-    //Chain 1
-    audioUnitManager.add(&chain1, "tal-one", ofColor::blue);
-    
-    chain1.link(&noiseMaker1)
-    .to(&filter1)
-    .to(&reverb1)
-    .toMixer();
-    
-    audioUnitManager.loadPresets(&chain1);
-    
-    //Chain 2
-    audioUnitManager.add(&chain2, "tal-two", ofColor::red);
-    
-    chain2.link(&noiseMaker2)
-    .to(&filter2)
-    .to(&reverb2)
-    .toMixer();
-    
-    audioUnitManager.loadPresets(&chain2);
-}
-
-void ofApp::play(void){
-    if(playing) {
-        chain1.midi()->sendNoteOn(1, note);
-        chain2.midi()->sendNoteOn(1, note);
-    }
-}
-
-void ofApp::togglePlaying() {
-    playing = !playing;
-    if(!playing) {
-        chain1.midi()->sendNoteOff(1, note);
-        chain2.midi()->sendNoteOff(1, note);
-    }
-}
-
 void ofApp::update(){
-    /*float cutoff = ofMap(sin(ofGetFrameNum() * 0.05), -1, 1, 0, 1);
-    noiseMaker1.set(TALNoiseMaker_cutoff, cutoff);*/
+    audioUnitHandler.update();
 }
 
 void ofApp::draw(){
-    audioUnitManager.draw();
+    audioUnitHandler.draw();
     if(showMachineLearningUI){
         drawMachineLearningUI();
     }
 }
 
 void ofApp::exit() {
-    audioUnitManager.exit();
+    audioUnitHandler.exit();
 }
 
 void ofApp::keyPressed(int key){
-    if(key == ' ') {
-        togglePlaying();
-    } else if(key == 'l') {
+    if(key == 'l') {
         showMachineLearningUI = !showMachineLearningUI;
-    } else if(key == '[') {
-        togglePlaying();
-        note--;
-        togglePlaying();
-    } else if(key == ']') {
-        togglePlaying();
-        note++;
-        togglePlaying();
     } else {
-        audioUnitManager.keyPressed(key);
+        audioUnitHandler.keyPressed(key);
     }
     
     //Machine Learning stuff
@@ -113,10 +55,10 @@ void ofApp::keyPressed(int key){
             cout << lastLabel << endl;
             
             if(lastLabel == 1) {
-                chain1.presets()->increment();
+                //chain1.presets()->increment();
             }
             if(lastLabel == 2) {
-                chain2.presets()->increment();
+                //chain2.presets()->increment();
             }
             if(lastLabel == 3) {
                 

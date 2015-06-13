@@ -1,12 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxAudioUnit.h"
-#include "ofxAudioUnitManager.h"
-#include "ofxBpm.h"
-#include "TALNoiseMaker.h"
-#include "LowPassFilter.h"
-#include "Reverb.h"
+#include "AudioUnitHandler.h"
 #include "ofxLearn.h"
 #include "ofxGraphicsFeatureMaker.h"
 
@@ -31,16 +26,8 @@ public:
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
-
-    ofxAudioUnitManager audioUnitManager;
-    AudioUnitChain chain1, chain2;
-    TALNoiseMaker noiseMaker1, noiseMaker2;
-    LowPassFilter filter1, filter2;
-    Reverb reverb1, reverb2;
-
-    ofxBpm bpm;
-    bool playing;
-    int note;
+    
+    AudioUnitHandler audioUnitHandler;
     
     bool showMachineLearningUI;
     ofxLearn classifier;
