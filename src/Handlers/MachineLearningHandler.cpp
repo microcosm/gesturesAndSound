@@ -6,6 +6,10 @@ void MachineLearningHandler::setup() {
     lastInstanceIsTraining = true;
 }
 
+void MachineLearningHandler::sendClassificationsTo(AudioUnitHandler* _classificationTarget) {
+    classificationTarget = _classificationTarget;
+}
+
 void MachineLearningHandler::draw(){
     if(showMachineLearningUI){
         drawMachineLearningUI();

@@ -3,6 +3,7 @@
 void ofApp::setup(){
     audioUnitHandler.setup();
     machineLearningHandler.setup();
+    machineLearningHandler.sendClassificationsTo(&audioUnitHandler);
 }
 
 void ofApp::update(){
@@ -23,12 +24,12 @@ void ofApp::keyPressed(int key){
     machineLearningHandler.keyPressed(key);
 }
 
-void ofApp::mouseMoved(int x, int y ){
-    machineLearningHandler.mouseMoved(mouseX, mouseY);
-}
-
 void ofApp::keyReleased(int key){
 
+}
+
+void ofApp::mouseMoved(int x, int y){
+    machineLearningHandler.mouseMoved(mouseX, mouseY);
 }
 
 void ofApp::mouseDragged(int x, int y, int button){
