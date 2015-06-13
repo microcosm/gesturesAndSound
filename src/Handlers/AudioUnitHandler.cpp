@@ -52,6 +52,15 @@ void AudioUnitHandler::update(){
      noiseMaker1.set(TALNoiseMaker_cutoff, cutoff);*/
 }
 
+void AudioUnitHandler::interpret(int classification){
+    if(classification == 1) {
+        chain1.presets()->increment();
+    }
+    if(classification == 2) {
+        chain2.presets()->increment();
+    }
+}
+
 void AudioUnitHandler::draw(){
     audioUnitManager.draw();
 }

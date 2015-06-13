@@ -36,18 +36,9 @@ void MachineLearningHandler::keyPressed(int key){
         if (isCreatingInstance) {
             instance = maker.createInstanceFromPointArray(points);
             lastLabel = classifier.predict(instance);
-            
-            
-            //lastLabel is the class of the classified gesture
-            cout << lastLabel << endl;
-            
-            if(lastLabel == 1) {
-                //chain1.presets()->increment();
-            }
-            if(lastLabel == 2) {
-                //chain2.presets()->increment();
-            }
-            
+
+            classificationTarget->interpret(lastLabel);
+
             points.clear();
             isCreatingInstance = false;
             lastInstanceIsTraining = false;

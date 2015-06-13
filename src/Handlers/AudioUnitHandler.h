@@ -13,6 +13,7 @@ public:
     void setup();
     void setupAudioUnitChains();
     void update();
+    void interpret(int classification);
     void draw();
     void play();
     void togglePlaying();
