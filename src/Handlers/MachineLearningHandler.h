@@ -14,6 +14,8 @@ public:
     void mouseMoved(int x, int y);
     void drawMachineLearningUI();
 protected:
+    void drawDebugBox(int x, int y, int width, int height, ofColor color=ofColor(255, 255, 255, 32));
+
     ofxLearn classifier;
     ofxGraphicsFeatureMaker maker;
     AudioUnitHandler* classificationTarget;

@@ -61,8 +61,10 @@ void MachineLearningHandler::mouseMoved(int x, int y){
 }
 
 void MachineLearningHandler::drawMachineLearningUI(){
+    
+    drawDebugBox(10, 445, 696, 314);
     ofFill();
-    ofSetColor(0);
+    ofSetColor(ofColor::white);
     ofDrawBitmapString("Training set currently contains " + ofToString(classifier.getNumberTrainingInstances()) + " examples", 330, 470);
     
     if (isTrained)
@@ -73,17 +75,22 @@ void MachineLearningHandler::drawMachineLearningUI(){
     if (isCreatingInstance) {
         ofPushStyle();
         ofSetColor(255, 0, 0);
-        ofCircle(340, 505, 5);
+        ofCircle(575, 541, 5);
         ofPopStyle();
-        ofDrawBitmapString("Recording new instance...", 360, 510);
+        ofDrawBitmapString("Recording...", 591, 546);
     }
     
+    drawDebugBox(330, 525, 220, 220);
     if (instance.size() > 0) {
         if (lastInstanceIsTraining)
-            ofDrawBitmapString("Last instance added to training set, class " + ofToString(lastLabel), 330, 530);
+            ofDrawBitmapString("Last instance added to training set, class " + ofToString(lastLabel), 330, 510);
         else
-            ofDrawBitmapString("Prediction for this instance: class " + ofToString(lastLabel), 330, 530);
-        maker.drawInstanceFromPointArray(instance, 330, 550, 200, 200);
+            ofDrawBitmapString("Prediction for this instance: class " + ofToString(lastLabel), 330, 510);
+        
+        maker.drawInstanceFromPointArray(instance, 340, 535, 200, 200);
+    } else {
+        drawDebugBox(340, 535, 200, 200, ofColor(ofColor::black, 150));
+        ofDrawBitmapString("No instances recorded yet", 330, 510);
     }
     
     // Instructions
@@ -94,4 +101,15 @@ void MachineLearningHandler::drawMachineLearningUI(){
     ofDrawBitmapString("4) t = train model (wait)", 20, 550);
     ofDrawBitmapString("5) record new gesture, then", 20, 570);
     ofDrawBitmapString("6) c = interpret recorded gesture", 20, 590);
+}
+
+void MachineLearningHandler::drawDebugBox(int x, int y, int width, int height, ofColor color) {
+    ofSetLineWidth(1);
+    ofSetColor(color);
+    ofFill();
+    ofRect(x, y, width, height);
+    ofSetColor(ofColor::white);
+    ofNoFill();
+    ofRect(x, y, width, height);
+    ofFill();
 }
