@@ -9,6 +9,12 @@ void AudioUnitHandler::setup() {
     
     ofAddListener(bpm.beatEvent, this, &AudioUnitHandler::play);
     bpm.start();
+    
+    cutoff.reset(0);
+    cutoff.setDuration(0.25);
+    cutoff.setCurve(EASE_IN_EASE_OUT);
+    cutoff.setRepeatType(LOOP_BACK_AND_FORTH);
+    cutoff.animateTo(1);
 }
 
 void AudioUnitHandler::setupAudioUnitChains(){
@@ -49,13 +55,16 @@ void AudioUnitHandler::togglePlaying() {
 }
 
 void AudioUnitHandler::update(){
-    /*float cutoff = ofMap(sin(ofGetFrameNum() * 0.05), -1, 1, 0, 1);
-     noiseMaker1.set(TALNoiseMaker_cutoff, cutoff);*/
+    cutoff.update( 1.0f/60.0f);
+    /*float cutoff = ofMap(sin(ofGetFrameNum() * 0.05), -1, 1, 0, 1);*/
+    noiseMaker1.set(TALNoiseMaker_cutoff, cutoff);
 }
 
 void AudioUnitHandler::interpret(int classification){
     if(classification == 1) {
-        chain1.presets()->increment();
+        float cutoff = ofMap(sin(ofGetFrameNum() * 0.05), -1, 1, 0, 1);
+    
+        noiseMaker1.set(TALNoiseMaker_cutoff, cutoff);
     }
     if(classification == 2) {
         chain2.presets()->increment();
@@ -81,6 +90,8 @@ void AudioUnitHandler::keyPressed(int key){
         togglePlaying();
         note++;
         togglePlaying();
+    } else if (key > 48 && key < 58) {
+        interpret(key - 48); //1 through 9
     } else {
         audioUnitManager.keyPressed(key);
     }

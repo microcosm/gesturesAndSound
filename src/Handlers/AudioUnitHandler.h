@@ -7,6 +7,7 @@
 #include "TALNoiseMaker.h"
 #include "LowPassFilter.h"
 #include "Reverb.h"
+#include "ofxAnimatableFloat.h"
 
 class AudioUnitHandler {
 public:
@@ -29,4 +30,6 @@ protected:
     ofxBpm bpm;
     bool playing;
     int note;
+    
+    ofxAnimatableFloat cutoff;
 };

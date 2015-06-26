@@ -56,6 +56,10 @@
 		8466B3921B2B7D9A0010C546 /* UIHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8466B3821B2B7D9A0010C546 /* UIHandler.cpp */; };
 		8466B3931B2B7D9A0010C546 /* ofxAudioUnitManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8466B3841B2B7D9A0010C546 /* ofxAudioUnitManager.cpp */; };
 		8466B7861B2B81250010C546 /* ofxLearn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8466B3961B2B81230010C546 /* ofxLearn.cpp */; };
+		84B992C81B3DEE880090FDD3 /* ofxAnimatable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B992C01B3DEE880090FDD3 /* ofxAnimatable.cpp */; };
+		84B992C91B3DEE880090FDD3 /* ofxAnimatableFloat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B992C21B3DEE880090FDD3 /* ofxAnimatableFloat.cpp */; };
+		84B992CA1B3DEE880090FDD3 /* ofxAnimatableOfColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B992C41B3DEE880090FDD3 /* ofxAnimatableOfColor.cpp */; };
+		84B992CB1B3DEE880090FDD3 /* ofxAnimatableOfPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B992C61B3DEE880090FDD3 /* ofxAnimatableOfPoint.cpp */; };
 		84E9651A1B2BB2E3009CD968 /* ofxGraphicsFeatureMaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84E965181B2BB2E3009CD968 /* ofxGraphicsFeatureMaker.cpp */; };
 		84E9651D1B2BB4DA009CD968 /* AudioUnitHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84E9651B1B2BB4DA009CD968 /* AudioUnitHandler.cpp */; };
 		84E965201B2BB7C5009CD968 /* MachineLearningHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84E9651E1B2BB7C5009CD968 /* MachineLearningHandler.cpp */; };
@@ -211,6 +215,14 @@
 		8466B3851B2B7D9A0010C546 /* ofxAudioUnitManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxAudioUnitManager.h; sourceTree = "<group>"; };
 		8466B3961B2B81230010C546 /* ofxLearn.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxLearn.cpp; sourceTree = "<group>"; };
 		8466B3971B2B81230010C546 /* ofxLearn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxLearn.h; sourceTree = "<group>"; };
+		84B992C01B3DEE880090FDD3 /* ofxAnimatable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAnimatable.cpp; sourceTree = "<group>"; };
+		84B992C11B3DEE880090FDD3 /* ofxAnimatable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxAnimatable.h; sourceTree = "<group>"; };
+		84B992C21B3DEE880090FDD3 /* ofxAnimatableFloat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAnimatableFloat.cpp; sourceTree = "<group>"; };
+		84B992C31B3DEE880090FDD3 /* ofxAnimatableFloat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxAnimatableFloat.h; sourceTree = "<group>"; };
+		84B992C41B3DEE880090FDD3 /* ofxAnimatableOfColor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAnimatableOfColor.cpp; sourceTree = "<group>"; };
+		84B992C51B3DEE880090FDD3 /* ofxAnimatableOfColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxAnimatableOfColor.h; sourceTree = "<group>"; };
+		84B992C61B3DEE880090FDD3 /* ofxAnimatableOfPoint.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAnimatableOfPoint.cpp; sourceTree = "<group>"; };
+		84B992C71B3DEE880090FDD3 /* ofxAnimatableOfPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxAnimatableOfPoint.h; sourceTree = "<group>"; };
 		84E965181B2BB2E3009CD968 /* ofxGraphicsFeatureMaker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxGraphicsFeatureMaker.cpp; sourceTree = "<group>"; };
 		84E965191B2BB2E3009CD968 /* ofxGraphicsFeatureMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGraphicsFeatureMaker.h; sourceTree = "<group>"; };
 		84E9651B1B2BB4DA009CD968 /* AudioUnitHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioUnitHandler.cpp; sourceTree = "<group>"; };
@@ -526,6 +538,30 @@
 			path = ../../../addons/ofxLearn/src;
 			sourceTree = "<group>";
 		};
+		84B992BE1B3DEE880090FDD3 /* ofxAnimatable */ = {
+			isa = PBXGroup;
+			children = (
+				84B992BF1B3DEE880090FDD3 /* src */,
+			);
+			name = ofxAnimatable;
+			sourceTree = "<group>";
+		};
+		84B992BF1B3DEE880090FDD3 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				84B992C01B3DEE880090FDD3 /* ofxAnimatable.cpp */,
+				84B992C11B3DEE880090FDD3 /* ofxAnimatable.h */,
+				84B992C21B3DEE880090FDD3 /* ofxAnimatableFloat.cpp */,
+				84B992C31B3DEE880090FDD3 /* ofxAnimatableFloat.h */,
+				84B992C41B3DEE880090FDD3 /* ofxAnimatableOfColor.cpp */,
+				84B992C51B3DEE880090FDD3 /* ofxAnimatableOfColor.h */,
+				84B992C61B3DEE880090FDD3 /* ofxAnimatableOfPoint.cpp */,
+				84B992C71B3DEE880090FDD3 /* ofxAnimatableOfPoint.h */,
+			);
+			name = src;
+			path = ../../../addons/ofxAnimatable/src;
+			sourceTree = "<group>";
+		};
 		84E965171B2BB2E3009CD968 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,6 +578,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				84B992BE1B3DEE880090FDD3 /* ofxAnimatable */,
 				8466B3941B2B81230010C546 /* ofxLearn */,
 				8466B3641B2B7D9A0010C546 /* ofxAudioUnitManager */,
 				8466B35F1B2B7D900010C546 /* ofxBpm */,
@@ -730,6 +767,7 @@
 				8466B3631B2B7D900010C546 /* ofxBpm.cpp in Sources */,
 				8466B38C1B2B7D9A0010C546 /* Delay.cpp in Sources */,
 				8466B38D1B2B7D9A0010C546 /* LowPassFilter.cpp in Sources */,
+				84B992CA1B3DEE880090FDD3 /* ofxAnimatableOfColor.cpp in Sources */,
 				8466B35D1B2B7D8A0010C546 /* RtMidi.cpp in Sources */,
 				8466B3131B2B7D860010C546 /* ofxAudioUnitCocoaUtilties.mm in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
@@ -740,14 +778,17 @@
 				8466B3211B2B7D860010C546 /* ofxAudioUnitSpeechSynth.cpp in Sources */,
 				8466B38A1B2B7D9A0010C546 /* TALNoiseMaker.cpp in Sources */,
 				8466B3171B2B7D860010C546 /* ofxAudioUnitHardwareUtils.cpp in Sources */,
+				84B992C81B3DEE880090FDD3 /* ofxAnimatable.cpp in Sources */,
 				8466B35B1B2B7D8A0010C546 /* ofxMidiMessage.cpp in Sources */,
 				8466B38B1B2B7D9A0010C546 /* Compressor.cpp in Sources */,
+				84B992CB1B3DEE880090FDD3 /* ofxAnimatableOfPoint.cpp in Sources */,
 				8466B3151B2B7D860010C546 /* ofxAudioUnitFftNode.cpp in Sources */,
 				8466B3101B2B7D860010C546 /* CAAUParameter.cpp in Sources */,
 				8466B3161B2B7D860010C546 /* ofxAudioUnitFilePlayer.cpp in Sources */,
 				8466B3861B2B7D9A0010C546 /* AudioUnitBase.cpp in Sources */,
 				8466B3141B2B7D860010C546 /* ofxAudioUnitDSPNode.cpp in Sources */,
 				84E965201B2BB7C5009CD968 /* MachineLearningHandler.cpp in Sources */,
+				84B992C91B3DEE880090FDD3 /* ofxAnimatableFloat.cpp in Sources */,
 				8466B3871B2B7D9A0010C546 /* AudioUnitChain.cpp in Sources */,
 				8466B3911B2B7D9A0010C546 /* PresetsHandler.cpp in Sources */,
 				8466B3571B2B7D8A0010C546 /* ofxRtMidiOut.cpp in Sources */,
