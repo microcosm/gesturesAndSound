@@ -10,7 +10,8 @@ void AudioUnitHandler::setup() {
     ofAddListener(bpm.beatEvent, this, &AudioUnitHandler::play);
     bpm.start();
     
-    cutoff.reset(0.5);
+    cutoffTarget = 0;
+    cutoff.reset(0);
     cutoff.setDuration(0.25);
     cutoff.setCurve(EASE_IN_EASE_OUT);
     cutoff.setRepeatType(PLAY_ONCE);
@@ -60,10 +61,12 @@ void AudioUnitHandler::update(){
 
 void AudioUnitHandler::interpret(int classification){
     if(classification == 1) {
-        cutoff.animateTo(1);
+        if(cutoffTarget < 1) cutoffTarget += 0.25;
+        cutoff.animateTo(cutoffTarget);
     }
     if(classification == 2) {
-        cutoff.animateTo(0);
+        if(cutoffTarget > 0) cutoffTarget -= 0.25;
+        cutoff.animateTo(cutoffTarget);
     }
 }
 

@@ -32,4 +32,5 @@ protected:
     int note;
     
     ofxAnimatableFloat cutoff;
+    float cutoffTarget;
 };
