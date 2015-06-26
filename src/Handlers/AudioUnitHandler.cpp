@@ -10,11 +10,10 @@ void AudioUnitHandler::setup() {
     ofAddListener(bpm.beatEvent, this, &AudioUnitHandler::play);
     bpm.start();
     
-    cutoff.reset(0);
+    cutoff.reset(0.5);
     cutoff.setDuration(0.25);
     cutoff.setCurve(EASE_IN_EASE_OUT);
-    cutoff.setRepeatType(LOOP_BACK_AND_FORTH);
-    cutoff.animateTo(1);
+    cutoff.setRepeatType(PLAY_ONCE);
 }
 
 void AudioUnitHandler::setupAudioUnitChains(){
@@ -56,18 +55,15 @@ void AudioUnitHandler::togglePlaying() {
 
 void AudioUnitHandler::update(){
     cutoff.update( 1.0f/60.0f);
-    /*float cutoff = ofMap(sin(ofGetFrameNum() * 0.05), -1, 1, 0, 1);*/
     noiseMaker1.set(TALNoiseMaker_cutoff, cutoff);
 }
 
 void AudioUnitHandler::interpret(int classification){
     if(classification == 1) {
-        float cutoff = ofMap(sin(ofGetFrameNum() * 0.05), -1, 1, 0, 1);
-    
-        noiseMaker1.set(TALNoiseMaker_cutoff, cutoff);
+        cutoff.animateTo(1);
     }
     if(classification == 2) {
-        chain2.presets()->increment();
+        cutoff.animateTo(0);
     }
 }
 
